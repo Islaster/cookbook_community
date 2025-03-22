@@ -14,6 +14,12 @@ export default function Auth() {
       return <LoginForm />;
     }
   }
+
+  function handleClick(e: boolean) {
+    setTimeout(() => {
+      setSignup(e);
+    }, 500);
+  }
   return (
     <section className="w-full max-w-md mx-auto mt-10">
       <fieldset className="relative w-full border border-gray-300 rounded-full h-12 overflow-hidden">
@@ -26,14 +32,14 @@ export default function Auth() {
           id="signup"
           defaultChecked
           className="hidden peer/login"
-          onClick={() => setSignup(true)}
+          onClick={() => handleClick(true)}
         />
         <input
           type="radio"
           name="auth"
           id="login"
           className="hidden peer/signup"
-          onClick={() => setSignup(false)}
+          onClick={() => handleClick(false)}
         />
 
         {/* Animated pill */}
