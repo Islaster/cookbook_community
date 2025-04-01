@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useUserContext } from "@/contexts/userContext";
 
 export default function SignupForm() {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ export default function SignupForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const router = useRouter();
+  const { fetchUser } = useUserContext();
 
   // Handle input changes
   const handleChange = (e: any) => {
@@ -24,7 +26,7 @@ export default function SignupForm() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("http://localhost:3001/api/signup", {
+      const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -35,9 +37,7 @@ export default function SignupForm() {
       }
 
       const data = await response.json();
-      localStorage.setItem("token", data.token); // Store JWT in localStorage
-      console.log(data);
-
+      fetchUser();
       router.push("/"); // Redirect after successful sign-up
     } catch (err: any) {
       setError(err.message);
@@ -45,6 +45,7 @@ export default function SignupForm() {
       setLoading(false);
     }
   };
+
   return (
     <div className="w-full mt-5">
       <h2 className="text-2xl font-semibold text-center mb-4">Signup Form</h2>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useUserContext } from "@/contexts/userContext";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const router = useRouter();
+  const { fetchUser } = useUserContext();
 
   // Handle input changes
   const handleChange = (e: any) => {
@@ -23,7 +25,7 @@ export default function LoginForm() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("http://localhost:3001/api/login", {
+      const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -34,8 +36,7 @@ export default function LoginForm() {
       }
 
       const data = await response.json();
-      localStorage.setItem("token", data.token); // Store JWT in localStorage
-      console.log(data);
+      fetchUser();
 
       router.push("/"); // Redirect after successful sign-up
     } catch (err: any) {

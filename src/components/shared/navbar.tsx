@@ -2,11 +2,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useUserContext } from "@/contexts/userContext";
+import { useLogout } from "@/lib/logoutClient";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [search, setSearch] = useState(false);
 
+  const { user } = useUserContext();
+  const logout = useLogout();
   function isActive(path: string) {
     return pathname === path ? "text-blue-600 font-bold" : "text-gray-700";
   }
@@ -29,6 +33,31 @@ export default function Navbar() {
           />
         )}
       </div>
+    );
+  }
+
+  function renderAuth() {
+    return (
+      <>
+        {user?.username ? (
+          <>
+            <Link href="/profile">Profile</Link>
+            <button
+              onClick={logout}
+              className={`${isActive("/auth")} hover:text-blue-600 font-medium`}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link
+            href="/auth"
+            className={`${isActive("/auth")} hover:text-blue-600 font-medium`}
+          >
+            Login/Signup
+          </Link>
+        )}
+      </>
     );
   }
   return (
@@ -74,12 +103,7 @@ export default function Navbar() {
           >
             Groups
           </Link>
-          <Link
-            href="/auth"
-            className={`${isActive("/auth")} hover:text-blue-600 font-medium`}
-          >
-            Login/Signup
-          </Link>
+          {renderAuth()}
         </nav>
         <div className="hidden md:block">{renderSearch()}</div>
         {/* Mobile Menu Button */}

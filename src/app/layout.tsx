@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/shared/navbar";
-import { SearchProvider } from "@/contexts/searchContext";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "Cookbook Community",
@@ -16,10 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SearchProvider>
+        <Providers>
           <Navbar />
           {children}
-        </SearchProvider>
+        </Providers>
       </body>
     </html>
   );

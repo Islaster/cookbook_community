@@ -1,0 +1,70 @@
+//schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./cc.sqlite"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  email     String   @unique
+  name      String?
+  socials   Json?
+  recipes   Recipe[] // 1-to-many relation
+  groups    Group[]
+  following Follow[] @relation("FollowingRelation")
+  followers Follow[] @relation("FollowerRelation")
+  createdAt DateTime @default(now())
+  Member    Member[]
+  bio       String?
+}
+
+model Follow {
+  id          Int @id @default(autoincrement())
+  followerId  Int
+  followingId Int
+
+  follower  User @relation("FollowingRelation", fields: [followerId], references: [id])
+  following User @relation("FollowerRelation", fields: [followingId], references: [id])
+
+  @@unique([followerId, followingId]) // prevents duplicate follows
+}
+
+model Recipe {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  ingredients Json
+  instructions Json
+  image       String
+  difficulty  String?
+  cookingTime String?
+  toolsNeeded Json
+  userId      Int // foreign key
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+}
+
+model Group {
+  id      Int      @id @default(autoincrement())
+  title   String   @unique
+  members Member[]
+  image   String
+  userId  Int // foreign key
+  user    User     @relation(fields: [userId], references: [id])
+}
+
+model Member {
+  id          Int    @id @default(autoincrement())
+  userId      Int // foreign key
+  groupId     Int?
+  user        User   @relation(fields: [userId], references: [id])
+  memberTitle String
+  Group       Group? @relation(fields: [groupId], references: [id])
+}

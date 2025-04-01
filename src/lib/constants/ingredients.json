@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Milk",
+    "variants": ["Cow Milk", "Oat Milk", "Almond Milk", "Soy Milk"]
+  },
+  {
+    "name": "Sugar",
+    "variants": ["White Sugar", "Brown Sugar", "Powdered Sugar"]
+  },
+  {
+    "name": "Salt",
+    "variants": ["salt"]
+  },
+  {
+    "name": "Oil",
+    "variants": ["Olive Oil", "Vegetable Oil", "Canola Oil"]
+  },
+  {
+    "name": "rice",
+    "variants":["brown rice", "white rice", "basmanti rice", "sushi rice"]
+  },
+  {
+    "name": "egg", 
+    "variants": ["chicken egg", "quail egg", "ostrich egg"]
+  },
+  {
+    "name": "lemon",
+     "variants":["lemon"]
+  },
+  {
+    "name": "butter",
+    "variants": []
+  },
+  {
+    "name": "pasta",
+    "variants": []
+  },
+  {
+    "name": "garlic",
+    "variants": ["garlic cloves", "garlic powder", "minced garlic"]
+  },
+  {
+    "name": "tomatoes",
+    "variants": []
+  },
+  {
+    "name": "potatoes",
+    "variants": []
+  },
+  {
+    "name": "peppers",
+    "variants": []
+  },
+  {
+    "name": "mustard",
+    "variants": []
+  },
+  {
+    "name": "beans",
+    "variants": []
+  },
+  {
+    "name": "celery",
+    "variants": []
+  },
+  {
+    "name": "cilantro",
+    "variants": []
+  },
+  {
+    "name": "parsley",
+    "variants":[]
+  },
+  {
+    "name": "dill",
+    "variants": []
+  },
+  {
+    "name": "lettuce",
+    "variants": []
+  },
+  {
+    "name": "carrots",
+    "variants": []
+  },
+  {
+    "name": "spinach",
+    "variants": []
+  },
+  {
+    "name": "yogurt",
+    "variants": []
+  },
+  {
+    "name": "cheese",
+    "variants": []
+  }
+]
