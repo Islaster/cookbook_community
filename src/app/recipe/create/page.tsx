@@ -7,9 +7,11 @@ import IngredientTagInput from "./ingredientTagInput";
 import { convertToFormData } from "./convertToFormdata";
 import { useUserContext } from "@/contexts/userContext";
 import { data } from "./types";
+import { useRouter } from "next/navigation";
 
 export default function CreateRecipe() {
   const [error, setError] = useState("");
+  const router = useRouter();
   const { user } = useUserContext();
   const [create, setCreate] = useState(false);
   const [formData, setFormData] = useState<data>({
@@ -44,6 +46,7 @@ export default function CreateRecipe() {
       }
 
       const data = await response.json();
+      router.push("/profile");
     } catch (err: any) {
       console.error(err);
       setError(err.message);

@@ -23,6 +23,7 @@ model User {
   createdAt DateTime @default(now())
   Member    Member[]
   bio       String?
+  Reviews   Review[]
 }
 
 model Follow {
@@ -67,4 +68,12 @@ model Member {
   user        User   @relation(fields: [userId], references: [id])
   memberTitle String
   Group       Group? @relation(fields: [groupId], references: [id])
+}
+
+model Review {
+  id   Int @id @default(autoincrement())
+  userId  Int
+  user    User    @relation(fields: [userId], references: [id])
+  rating  Int
+  review  String
 }

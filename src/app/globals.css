@@ -1,2 +1,9 @@
 @import "tailwindcss";
 
+.bg-beige {
+  background-color: #ede8d0;
+}
+
+.bg-beige:hover {
+  background-color: #d6d1bcc8;
+}

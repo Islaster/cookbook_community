@@ -4,70 +4,11 @@ import { Fragment, useState } from "react";
 import RecipeGridItem from "@/components/landing/recipeGridItem";
 import { useSearchContext } from "@/contexts/searchContext";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import data from "@/data/recipes.json"
 
 export default function Home() {
-  const [gridData, setGridData] = useState([
-    {
-      title: "Lorem Ipsum",
-      image: "recipe1.webp",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe2.webp",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe3.webp",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe4.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe5.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe6.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe7.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe8.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe9.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe10.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe11.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe12.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe13.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe14.jpg",
-    },
-    {
-      title: "Lorem Ipsum",
-      image: "recipe15.jpg",
-    },
-  ]);
+  const [gridData, setGridData] = useState(data);
   const router = useRouter();
   const { setQuery } = useSearchContext();
 
@@ -107,7 +48,9 @@ export default function Home() {
                 key={index}
                 className="bg-white rounded-lg shadow-md overflow-hidden"
               >
+                <Link href={`recipe/${col.id}`}>
                 <RecipeGridItem obj={col} />
+                </Link>
               </div>
             ))}
           </Fragment>

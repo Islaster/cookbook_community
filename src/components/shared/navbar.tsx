@@ -41,7 +41,22 @@ export default function Navbar() {
       <>
         {user?.username ? (
           <>
-            <Link href="/profile">Profile</Link>
+            <Link
+              href="/recipe/create"
+              className={`${isActive(
+                "/recipe/create"
+              )} hover:text-blue-600 font-medium`}
+            >
+              Create Recipe
+            </Link>
+            <Link
+              href={`/profile/${user.username}`}
+              className={`${isActive(
+                `/profile/${user.username}`
+              )} hover:text-blue-600 font-medium`}
+            >
+              Profile
+            </Link>
             <button
               onClick={logout}
               className={`${isActive("/auth")} hover:text-blue-600 font-medium`}
