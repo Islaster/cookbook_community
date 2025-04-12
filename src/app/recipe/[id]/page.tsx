@@ -1,5 +1,5 @@
+import { prisma } from "@/lib/prisma";
 import { FC } from "react";
-import recipes from "@/data/recipes.json";
 
 type RecipeDetailProps = {
   params: {
@@ -9,7 +9,17 @@ type RecipeDetailProps = {
 
 const RecipeDetail: FC<RecipeDetailProps> = async ({ params }) => {
   const { id } = await params;
-  const recipe = recipes.find((recipe) => Number(id) === recipe.id);
+  const recipeId = parseInt(id, 10);
+  console.log(parseInt(id, 10));
+
+  const recipe = await prisma.recipe.findUnique({
+    where: {
+      id: recipeId,
+    },
+  });
+
+  console.log(recipe);
+
   const totalTime = (recipe?.cookTime ?? 0) + (recipe?.prepTime ?? 0);
 
   if (!recipe) return <div>Recipe not found.</div>;
@@ -35,7 +45,7 @@ const RecipeDetail: FC<RecipeDetailProps> = async ({ params }) => {
       </div>
 
       <img
-        src={`/${recipe.image}`}
+        src={recipe.image}
         alt={recipe.title}
         className="w-full h-64 object-cover rounded-lg"
       />

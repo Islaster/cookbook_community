@@ -24,6 +24,7 @@ model User {
   Member    Member[]
   bio       String?
   Reviews   Review[]
+  image  String?
 }
 
 model Follow {
@@ -45,7 +46,8 @@ model Recipe {
   instructions Json
   image       String
   difficulty  String?
-  cookingTime String?
+  cookingTime Int?
+  prepTime    Int?
   toolsNeeded Json
   userId      Int // foreign key
   user        User     @relation(fields: [userId], references: [id])

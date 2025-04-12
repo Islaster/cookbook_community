@@ -1,9 +1,7 @@
 [
   {
-    "id": 1,
     "title": "Spaghetti Carbonara",
-    "prepTime": 26,
-    "cookTime": 21,
+    "description": "A tasty and easy-to-make spaghetti carbonara.",
     "ingredients": [
       {
         "name": "Tomato",
@@ -26,16 +24,20 @@
       "Step 2: Do something useful.",
       "Step 3: Do something useful."
     ],
-    "toolsNeeded": ["Pan", "Pot", "Knife", "Toaster"],
-    "description": "A tasty and easy-to-make spaghetti carbonara.",
     "image": "spaghetti_carbonara.jpg",
+    "difficulty": null,
+    "prepTime": 26,
+    "toolsNeeded": [
+      "Pan",
+      "Pot",
+      "Knife",
+      "Toaster"
+    ],
     "userId": 1
   },
   {
-    "id": 2,
     "title": "Chicken Stir Fry",
-    "prepTime": 17,
-    "cookTime": 51,
+    "description": "A tasty and easy-to-make chicken stir fry.",
     "ingredients": [
       {
         "name": "Avocado",
@@ -60,16 +62,20 @@
       "Step 4: Do something useful.",
       "Step 5: Do something useful."
     ],
-    "toolsNeeded": ["Oven", "Toaster", "Blender", "Grater"],
-    "description": "A tasty and easy-to-make chicken stir fry.",
     "image": "Chicken_Stir_Fry.jpg",
+    "difficulty": null,
+    "prepTime": 17,
+    "toolsNeeded": [
+      "Oven",
+      "Toaster",
+      "Blender",
+      "Grater"
+    ],
     "userId": 2
   },
   {
-    "id": 3,
     "title": "Avocado Toast",
-    "prepTime": 17,
-    "cookTime": 50,
+    "description": "A tasty and easy-to-make avocado toast.",
     "ingredients": [
       {
         "name": "Spaghetti",
@@ -98,16 +104,20 @@
       "Step 3: Do something useful.",
       "Step 4: Do something useful."
     ],
-    "toolsNeeded": ["Oven", "Knife", "Toaster", "Grater"],
-    "description": "A tasty and easy-to-make avocado toast.",
     "image": "avocado_toast.jpg",
+    "difficulty": null,
+    "prepTime": 17,
+    "toolsNeeded": [
+      "Oven",
+      "Knife",
+      "Toaster",
+      "Grater"
+    ],
     "userId": 1
   },
   {
-    "id": 4,
     "title": "Beef Tacos",
-    "prepTime": 23,
-    "cookTime": 45,
+    "description": "A tasty and easy-to-make beef tacos.",
     "ingredients": [
       {
         "name": "Salt",
@@ -136,16 +146,18 @@
       "Step 3: Do something useful.",
       "Step 4: Do something useful."
     ],
-    "toolsNeeded": ["Mixing Bowl", "Oven"],
-    "description": "A tasty and easy-to-make beef tacos.",
     "image": "beef_tacos.jpg",
+    "difficulty": null,
+    "prepTime": 23,
+    "toolsNeeded": [
+      "Mixing Bowl",
+      "Oven"
+    ],
     "userId": 1
   },
   {
-    "id": 5,
     "title": "Vegetable Curry",
-    "prepTime": 17,
-    "cookTime": 19,
+    "description": "A tasty and easy-to-make vegetable curry.",
     "ingredients": [
       {
         "name": "Beef",
@@ -168,16 +180,20 @@
       "Step 2: Do something useful.",
       "Step 3: Do something useful."
     ],
-    "toolsNeeded": ["Knife", "Mixing Bowl", "Toaster", "Blender"],
-    "description": "A tasty and easy-to-make vegetable curry.",
     "image": "vegetable_curry.jpg",
+    "difficulty": null,
+    "prepTime": 17,
+    "toolsNeeded": [
+      "Knife",
+      "Mixing Bowl",
+      "Toaster",
+      "Blender"
+    ],
     "userId": 2
   },
   {
-    "id": 6,
     "title": "Grilled Cheese Sandwich",
-    "prepTime": 12,
-    "cookTime": 30,
+    "description": "A tasty and easy-to-make grilled cheese sandwich.",
     "ingredients": [
       {
         "name": "Spaghetti",
@@ -206,16 +222,18 @@
       "Step 3: Do something useful.",
       "Step 4: Do something useful."
     ],
-    "toolsNeeded": ["Knife", "Pan"],
-    "description": "A tasty and easy-to-make grilled cheese sandwich.",
     "image": "grilled_cheese.jpg",
+    "difficulty": null,
+    "prepTime": 12,
+    "toolsNeeded": [
+      "Knife",
+      "Pan"
+    ],
     "userId": 1
   },
   {
-    "id": 7,
     "title": "Caesar Salad",
-    "prepTime": 6,
-    "cookTime": 57,
+    "description": "A tasty and easy-to-make caesar salad.",
     "ingredients": [
       {
         "name": "Broccoli",
@@ -244,16 +262,19 @@
       "Step 3: Do something useful.",
       "Step 4: Do something useful."
     ],
-    "toolsNeeded": ["Grater", "Cutting Board", "Pot"],
-    "description": "A tasty and easy-to-make caesar salad.",
     "image": "caesar_salad.jpg",
+    "difficulty": null,
+    "prepTime": 6,
+    "toolsNeeded": [
+      "Grater",
+      "Cutting Board",
+      "Pot"
+    ],
     "userId": 1
   },
   {
-    "id": 8,
     "title": "Tomato Soup",
-    "prepTime": 13,
-    "cookTime": 43,
+    "description": "A tasty and easy-to-make tomato soup.",
     "ingredients": [
       {
         "name": "Beef",
@@ -281,16 +302,19 @@
       "Step 2: Do something useful.",
       "Step 3: Do something useful."
     ],
-    "toolsNeeded": ["Oven", "Mixing Bowl", "Cutting Board"],
-    "description": "A tasty and easy-to-make tomato soup.",
     "image": "tomato_soup.jpg",
+    "difficulty": null,
+    "prepTime": 13,
+    "toolsNeeded": [
+      "Oven",
+      "Mixing Bowl",
+      "Cutting Board"
+    ],
     "userId": 2
   },
   {
-    "id": 9,
     "title": "Pancakes",
-    "prepTime": 15,
-    "cookTime": 45,
+    "description": "A tasty and easy-to-make pancakes.",
     "ingredients": [
       {
         "name": "Broccoli",
@@ -323,16 +347,18 @@
       "Step 2: Do something useful.",
       "Step 3: Do something useful."
     ],
-    "toolsNeeded": ["Grater", "Pot"],
-    "description": "A tasty and easy-to-make pancakes.",
     "image": "pancakes.webp",
+    "difficulty": null,
+    "prepTime": 15,
+    "toolsNeeded": [
+      "Grater",
+      "Pot"
+    ],
     "userId": 1
   },
   {
-    "id": 10,
     "title": "Garlic Butter Shrimp",
-    "prepTime": 14,
-    "cookTime": 53,
+    "description": "A tasty and easy-to-make garlic butter shrimp.",
     "ingredients": [
       {
         "name": "Bread",
@@ -360,16 +386,18 @@
       "Step 2: Do something useful.",
       "Step 3: Do something useful."
     ],
-    "toolsNeeded": ["Pot", "Knife"],
-    "description": "A tasty and easy-to-make garlic butter shrimp.",
     "image": "Garlic_Butter_Shrimp.jpg",
+    "difficulty": null,
+    "prepTime": 14,
+    "toolsNeeded": [
+      "Pot",
+      "Knife"
+    ],
     "userId": 2
   },
   {
-    "id": 11,
     "title": "Steak Fajitas",
-    "prepTime": 20,
-    "cookTime": 29,
+    "description": "A tasty and easy-to-make steak fajitas.",
     "ingredients": [
       {
         "name": "Pancetta",
@@ -398,16 +426,18 @@
       "Step 3: Do something useful.",
       "Step 4: Do something useful."
     ],
-    "toolsNeeded": ["Toaster", "Knife"],
-    "description": "A tasty and easy-to-make steak fajitas.",
     "image": "Steak_Fajita.jpg",
+    "difficulty": null,
+    "prepTime": 20,
+    "toolsNeeded": [
+      "Toaster",
+      "Knife"
+    ],
     "userId": 1
   },
   {
-    "id": 12,
     "title": "Mushroom Risotto",
-    "prepTime": 7,
-    "cookTime": 25,
+    "description": "A tasty and easy-to-make mushroom risotto.",
     "ingredients": [
       {
         "name": "Broccoli",
@@ -432,16 +462,18 @@
       "Step 4: Do something useful.",
       "Step 5: Do something useful."
     ],
-    "toolsNeeded": ["Toaster", "Mixing Bowl"],
-    "description": "A tasty and easy-to-make mushroom risotto.",
     "image": "Mushroom_Risotto.jpg",
+    "difficulty": null,
+    "prepTime": 7,
+    "toolsNeeded": [
+      "Toaster",
+      "Mixing Bowl"
+    ],
     "userId": 1
   },
   {
-    "id": 13,
     "title": "BBQ Chicken Pizza",
-    "prepTime": 24,
-    "cookTime": 17,
+    "description": "A tasty and easy-to-make bbq chicken pizza.",
     "ingredients": [
       {
         "name": "Bell Pepper",
@@ -476,16 +508,20 @@
       "Step 4: Do something useful.",
       "Step 5: Do something useful."
     ],
-    "toolsNeeded": ["Knife", "Mixing Bowl", "Spatula", "Pot"],
-    "description": "A tasty and easy-to-make bbq chicken pizza.",
     "image": "BBQ_Chicken_pizza.jpg",
+    "difficulty": null,
+    "prepTime": 24,
+    "toolsNeeded": [
+      "Knife",
+      "Mixing Bowl",
+      "Spatula",
+      "Pot"
+    ],
     "userId": 2
   },
   {
-    "id": 14,
     "title": "Egg Fried Rice",
-    "prepTime": 14,
-    "cookTime": 25,
+    "description": "A tasty and easy-to-make egg fried rice.",
     "ingredients": [
       {
         "name": "Pancetta",
@@ -513,16 +549,19 @@
       "Step 2: Do something useful.",
       "Step 3: Do something useful."
     ],
-    "toolsNeeded": ["Mixing Bowl", "Blender", "Spatula"],
-    "description": "A tasty and easy-to-make egg fried rice.",
     "image": "egg_fried_rice.webp",
+    "difficulty": null,
+    "prepTime": 14,
+    "toolsNeeded": [
+      "Mixing Bowl",
+      "Blender",
+      "Spatula"
+    ],
     "userId": 1
   },
   {
-    "id": 15,
     "title": "Fish and Chips",
-    "prepTime": 7,
-    "cookTime": 56,
+    "description": "A tasty and easy-to-make fish and chips.",
     "ingredients": [
       {
         "name": "Eggs",
@@ -546,9 +585,15 @@
       "Step 3: Do something useful.",
       "Step 4: Do something useful."
     ],
-    "toolsNeeded": ["Mixing Bowl", "Grater", "Blender", "Pot"],
-    "description": "A tasty and easy-to-make fish and chips.",
     "image": "fish_and_chips.avif",
+    "difficulty": null,
+    "prepTime": 7,
+    "toolsNeeded": [
+      "Mixing Bowl",
+      "Grater",
+      "Blender",
+      "Pot"
+    ],
     "userId": 2
   }
 ]

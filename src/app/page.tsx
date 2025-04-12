@@ -2,19 +2,18 @@
 
 import { Fragment, useState } from "react";
 import RecipeGridItem from "@/components/landing/recipeGridItem";
-import { useSearchContext } from "@/contexts/searchContext";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import data from "@/data/recipes.json"
+import data from "@/data/recipes.json";
 
 export default function Home() {
   const [gridData, setGridData] = useState(data);
+  const [title, setTitle] = useState("");
   const router = useRouter();
-  const { setQuery } = useSearchContext();
 
   function onEnterKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
-      router.push("/search");
+      router.push(`/search/${title}`);
     }
   }
 
@@ -34,7 +33,7 @@ export default function Home() {
           type="text"
           placeholder="Search for recipe or user"
           className="w-full max-w-2xl p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          onChange={(evt) => setQuery(evt.target.value)}
+          onChange={(evt) => setTitle(evt.target.value)}
           onKeyDown={onEnterKeyPress}
         />
       </div>
@@ -49,7 +48,7 @@ export default function Home() {
                 className="bg-white rounded-lg shadow-md overflow-hidden"
               >
                 <Link href={`recipe/${col.id}`}>
-                <RecipeGridItem obj={col} />
+                  <RecipeGridItem obj={col} />
                 </Link>
               </div>
             ))}

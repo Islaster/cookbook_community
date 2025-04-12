@@ -1,5 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { FC } from "react";
+import Link from "next/link";
+import ProfileImageDisplay from "./ProfileImageDisplay";
+import Buttons from "./settingsAndFollowButton";
 
 type ProfilelProps = {
   params: {
@@ -13,29 +16,23 @@ const Profile: FC<ProfilelProps> = async ({ params }) => {
     where: { username },
     include: { recipes: true, followers: true, following: true },
   });
-  console.log(user);
-  //user recipes
-  //user followers
-  //user following
   return (
     <div className="max-w-3xl mx-auto p-4 space-y-6">
       {/* Top Profile Row */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <img
-            src="/profile.png"
-            alt="profile"
-            className="w-20 h-20 rounded-full object-cover"
+          {/* Profile Pic with Upload Hover */}
+          <ProfileImageDisplay
+            username={username}
+            image={user?.image ?? "./profile.png"}
           />
+
           <div>
             <h2 className="text-2xl font-semibold">{user?.username}</h2>
             <p className="text-gray-600">{user?.bio}</p>
           </div>
         </div>
-
-        <button className="bg-gray-200 text-sm px-4 py-2 rounded-md hover:bg-gray-300">
-          Edit Profile
-        </button>
+        <Buttons id={user?.id ?? 0} />
       </div>
 
       {/* Stats Row */}
