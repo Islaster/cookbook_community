@@ -44,4 +44,3 @@ next-env.d.ts
 /prisma/*.sqlite
 /prisma/*.sqlite-journal
 /prisma/*.sqlite-shm
-/scripts
