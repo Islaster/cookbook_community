@@ -1,6 +1,7 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 
 type FollowProps = {
   userId: number;
@@ -27,13 +28,14 @@ export async function followUser({ userId, targetId }: FollowProps) {
         followingId: target.id,
       },
     });
-  } catch (error: any) {
-    if (error.code === "P2002") {
-      console.log("Already following");
-    } else {
-      console.error("Follow Error:", error);
-      throw error;
-    }
+  } catch (error: unknown) {
+    if (error instanceof Prisma.PrismaClientKnownRequestError)
+      if (error.code === "P2002") {
+        console.log("Already following");
+      } else {
+        console.error("Follow Error:", error);
+        throw error;
+      }
   }
 }
 

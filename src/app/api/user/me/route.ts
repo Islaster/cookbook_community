@@ -10,7 +10,9 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { userId: number };
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as {
+      userId: number;
+    };
 
     const user = await prisma.user.findUnique({
       where: { id: decoded.userId },
@@ -29,8 +31,10 @@ export async function GET(req: NextRequest) {
     }
 
     return NextResponse.json({ user });
-
-  } catch (err) {
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error(err.message);
+    }
     return NextResponse.json({ error: "Invalid token" }, { status: 401 });
   }
 }

@@ -4,8 +4,13 @@ import { updateUserSettings } from "./actions";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import FormInput from "./FormInput";
+import { SafeUser } from "@/types/user";
 
-export default function SettingsForm({ user }: any) {
+type Props = {
+  user: SafeUser;
+};
+
+export default function SettingsForm({ user }: Props) {
   const router = useRouter();
   const [formData, setFormData] = useState({
     username: user.username,
@@ -13,16 +18,18 @@ export default function SettingsForm({ user }: any) {
     socials: user.socials || {},
   });
 
-  const handleChange = (field) => (e) => {
-    setFormData({ ...formData, [field]: e.target.value });
-  };
+  const handleChange =
+    (field: string) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData({ ...formData, [field]: e.target.value });
+    };
 
   const onSubmit = async () => {
     const data = new FormData();
-    data.append("userId", user?.id);
+    data.append("userId", String(user.id));
     for (const key in formData) {
-      const value = formData[key];
-      if (key === "username") {
+      const value = formData[key as keyof typeof formData];
+      if (key === "username" && typeof value === "string") {
         if (value.includes(" ")) {
           return alert("Username cannot have spaces");
         }
@@ -45,7 +52,7 @@ export default function SettingsForm({ user }: any) {
       />
       <FormInput
         label="Bio"
-        value={formData.bio}
+        value={formData.bio ?? ""}
         onChange={handleChange("bio")}
       />
       {/* More socials */}

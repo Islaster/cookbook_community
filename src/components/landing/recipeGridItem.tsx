@@ -1,5 +1,6 @@
 type GridItem = { title: string; image: string };
 type Props = { obj: GridItem };
+import Image from "next/image";
 
 export default function RecipeGridItem({ obj }: Props) {
   return (
@@ -9,11 +10,14 @@ export default function RecipeGridItem({ obj }: Props) {
       </h3>
 
       <div className="relative w-full aspect-[4/3]">
-        <img
-          src={obj.image}
-          alt="food image"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <div className="relative w-full h-full overflow-hidden">
+          <Image
+            src={obj.image}
+            alt="food image"
+            fill
+            className="object-cover"
+          />
+        </div>
       </div>
     </div>
   );

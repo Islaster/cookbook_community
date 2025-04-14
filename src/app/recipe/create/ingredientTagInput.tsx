@@ -18,7 +18,6 @@ export default function IngredientTagInput({
   label,
   ingredients,
   setIngredients,
-  placeholder,
 }: IngredientTagInputProps) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState<number | "">("");

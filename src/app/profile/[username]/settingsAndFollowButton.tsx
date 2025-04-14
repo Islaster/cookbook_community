@@ -12,14 +12,16 @@ type Props = {
 
 const Buttons = ({ currentUserId }: Props) => {
   const { username } = useParams();
-  const targetId = username;
   const [isFollowing, setIsFollowing] = useState(false);
   const { user } = useUserContext();
   const userId = currentUserId === user?.id;
   useEffect(() => {
     const fetchFollowing = async () => {
       if (!username || !user?.id) return;
-      const res = await checkFollowing({ userId: user.id, targetId: username });
+      const res = await checkFollowing({
+        userId: user.id,
+        targetId: username as string,
+      });
       setIsFollowing(res);
     };
 
@@ -30,10 +32,10 @@ const Buttons = ({ currentUserId }: Props) => {
     if (!username || !user?.id) return;
 
     if (isFollowing) {
-      await unfollowUser({ userId: user.id, targetId: username });
+      await unfollowUser({ userId: user.id, targetId: username as string });
       setIsFollowing(false);
     } else {
-      await followUser({ userId: user.id, targetId: username });
+      await followUser({ userId: user.id, targetId: username as string });
       setIsFollowing(true);
     }
   };

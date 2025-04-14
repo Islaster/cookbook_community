@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useUserContext } from "@/contexts/userContext";
 import { useLogout } from "@/lib/logoutClient";
+import Image from "next/image";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -42,12 +43,17 @@ export default function Navbar() {
             />
           </form>
         ) : (
-          <img
-            src="/search-icon.png"
-            alt="search icon"
-            className="h-6 w-6 cursor-pointer"
+          <div
+            className="h-6 w-6 cursor-pointer relative"
             onClick={() => setSearch(true)}
-          />
+          >
+            <Image
+              src="/search-icon.png"
+              alt="search icon"
+              fill
+              className="object-contain"
+            />
+          </div>
         )}
       </div>
     );
@@ -91,11 +97,14 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-8 p-4">
         {/* Logo */}
         <Link href="/">
-          <img
-            src="/community_cookbook_logo.png"
-            alt="logo"
-            className="h-12 w-auto"
-          />
+          <div className="relative h-12 w-[120px]">
+            <Image
+              src="/community_cookbook_logo.png"
+              alt="logo"
+              fill
+              className="object-contain"
+            />
+          </div>
         </Link>
 
         {/* Desktop Nav */}

@@ -6,7 +6,10 @@ export async function POST(req: NextRequest) {
   try {
     create(body);
     return NextResponse.json({ success: true }, { status: 200 });
-  } catch (err) {
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error(err.message);
+    }
     return NextResponse.json({ error: "Invalid token" }, { status: 401 });
   }
 }

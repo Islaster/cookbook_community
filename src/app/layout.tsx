@@ -4,8 +4,9 @@ import Navbar from "@/components/shared/navbar";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
-  title: "Cookbook Community",
-  description: "Created by Isaac Laster",
+  title: "Community Cookbook — Share & Discover Recipes",
+  description:
+    "Post your favorite recipes, discover new meals, and follow home cooks you love. The Instagram of recipes.",
 };
 
 export default function RootLayout({

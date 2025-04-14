@@ -27,12 +27,8 @@
     "image": "spaghetti_carbonara.jpg",
     "difficulty": null,
     "prepTime": 26,
-    "toolsNeeded": [
-      "Pan",
-      "Pot",
-      "Knife",
-      "Toaster"
-    ],
+    "cookingTime": 15,
+    "toolsNeeded": ["Pan", "Pot", "Knife", "Toaster"],
     "userId": 1
   },
   {
@@ -65,12 +61,8 @@
     "image": "Chicken_Stir_Fry.jpg",
     "difficulty": null,
     "prepTime": 17,
-    "toolsNeeded": [
-      "Oven",
-      "Toaster",
-      "Blender",
-      "Grater"
-    ],
+    "cookingTime": 10,
+    "toolsNeeded": ["Oven", "Toaster", "Blender", "Grater"],
     "userId": 2
   },
   {
@@ -107,12 +99,8 @@
     "image": "avocado_toast.jpg",
     "difficulty": null,
     "prepTime": 17,
-    "toolsNeeded": [
-      "Oven",
-      "Knife",
-      "Toaster",
-      "Grater"
-    ],
+    "cookingTime": 5,
+    "toolsNeeded": ["Oven", "Knife", "Toaster", "Grater"],
     "userId": 1
   },
   {
@@ -149,10 +137,8 @@
     "image": "beef_tacos.jpg",
     "difficulty": null,
     "prepTime": 23,
-    "toolsNeeded": [
-      "Mixing Bowl",
-      "Oven"
-    ],
+    "cookingTime": 12,
+    "toolsNeeded": ["Mixing Bowl", "Oven"],
     "userId": 1
   },
   {
@@ -183,12 +169,8 @@
     "image": "vegetable_curry.jpg",
     "difficulty": null,
     "prepTime": 17,
-    "toolsNeeded": [
-      "Knife",
-      "Mixing Bowl",
-      "Toaster",
-      "Blender"
-    ],
+    "cookingTime": 20,
+    "toolsNeeded": ["Knife", "Mixing Bowl", "Toaster", "Blender"],
     "userId": 2
   },
   {
@@ -225,10 +207,8 @@
     "image": "grilled_cheese.jpg",
     "difficulty": null,
     "prepTime": 12,
-    "toolsNeeded": [
-      "Knife",
-      "Pan"
-    ],
+    "cookingTime": 6,
+    "toolsNeeded": ["Knife", "Pan"],
     "userId": 1
   },
   {
@@ -265,11 +245,8 @@
     "image": "caesar_salad.jpg",
     "difficulty": null,
     "prepTime": 6,
-    "toolsNeeded": [
-      "Grater",
-      "Cutting Board",
-      "Pot"
-    ],
+    "cookingTime": 0,
+    "toolsNeeded": ["Grater", "Cutting Board", "Pot"],
     "userId": 1
   },
   {
@@ -305,11 +282,8 @@
     "image": "tomato_soup.jpg",
     "difficulty": null,
     "prepTime": 13,
-    "toolsNeeded": [
-      "Oven",
-      "Mixing Bowl",
-      "Cutting Board"
-    ],
+    "cookingTime": 10,
+    "toolsNeeded": ["Oven", "Mixing Bowl", "Cutting Board"],
     "userId": 2
   },
   {
@@ -350,10 +324,8 @@
     "image": "pancakes.webp",
     "difficulty": null,
     "prepTime": 15,
-    "toolsNeeded": [
-      "Grater",
-      "Pot"
-    ],
+    "cookingTime": 10,
+    "toolsNeeded": ["Grater", "Pot"],
     "userId": 1
   },
   {
@@ -389,10 +361,8 @@
     "image": "Garlic_Butter_Shrimp.jpg",
     "difficulty": null,
     "prepTime": 14,
-    "toolsNeeded": [
-      "Pot",
-      "Knife"
-    ],
+    "cookingTime": 7,
+    "toolsNeeded": ["Pot", "Knife"],
     "userId": 2
   },
   {
@@ -429,10 +399,8 @@
     "image": "Steak_Fajita.jpg",
     "difficulty": null,
     "prepTime": 20,
-    "toolsNeeded": [
-      "Toaster",
-      "Knife"
-    ],
+    "cookingTime": 15,
+    "toolsNeeded": ["Toaster", "Knife"],
     "userId": 1
   },
   {
@@ -465,10 +433,8 @@
     "image": "Mushroom_Risotto.jpg",
     "difficulty": null,
     "prepTime": 7,
-    "toolsNeeded": [
-      "Toaster",
-      "Mixing Bowl"
-    ],
+    "cookingTime": 30,
+    "toolsNeeded": ["Toaster", "Mixing Bowl"],
     "userId": 1
   },
   {
@@ -511,12 +477,8 @@
     "image": "BBQ_Chicken_pizza.jpg",
     "difficulty": null,
     "prepTime": 24,
-    "toolsNeeded": [
-      "Knife",
-      "Mixing Bowl",
-      "Spatula",
-      "Pot"
-    ],
+    "cookingTime": 15,
+    "toolsNeeded": ["Knife", "Mixing Bowl", "Spatula", "Pot"],
     "userId": 2
   },
   {
@@ -552,11 +514,8 @@
     "image": "egg_fried_rice.webp",
     "difficulty": null,
     "prepTime": 14,
-    "toolsNeeded": [
-      "Mixing Bowl",
-      "Blender",
-      "Spatula"
-    ],
+    "cookingTime": 10,
+    "toolsNeeded": ["Mixing Bowl", "Blender", "Spatula"],
     "userId": 1
   },
   {
@@ -588,12 +547,8 @@
     "image": "fish_and_chips.avif",
     "difficulty": null,
     "prepTime": 7,
-    "toolsNeeded": [
-      "Mixing Bowl",
-      "Grater",
-      "Blender",
-      "Pot"
-    ],
+    "cookingTime": 15,
+    "toolsNeeded": ["Mixing Bowl", "Grater", "Blender", "Pot"],
     "userId": 2
   }
 ]

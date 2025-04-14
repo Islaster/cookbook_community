@@ -2,23 +2,24 @@
 
 import ProfileImageForm from "./ProfileImageForm";
 import { useUserContext } from "@/contexts/userContext";
+import Image from "next/image";
 
 export default function ProfileImageDisplay({
   image,
   username,
 }: {
-  image: string | undefined;
+  image: string;
   username: string;
 }) {
-  console.log("image url: ", image);
   const { tempImage } = useUserContext();
   console.log("tempImage url :", tempImage);
   return (
-    <div className="relative w-20 h-20 group">
-      <img
+    <div className="relative w-20 h-20 group overflow-hidden rounded-full">
+      <Image
         src={tempImage || image}
         alt="profile"
-        className="w-20 h-20 rounded-full object-cover"
+        fill
+        className="object-cover"
       />
 
       <label

@@ -24,7 +24,9 @@ model User {
   Member    Member[]
   bio       String?
   Reviews   Review[]
-  image  String?
+  likes     Like[]
+  saves     Save[]
+  image     String?
 }
 
 model Follow {
@@ -39,19 +41,22 @@ model Follow {
 }
 
 model Recipe {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  ingredients Json
+  id           Int      @id @default(autoincrement())
+  title        String
+  description  String
+  ingredients  Json
   instructions Json
-  image       String
-  difficulty  String?
-  cookingTime Int?
-  prepTime    Int?
-  toolsNeeded Json
-  userId      Int // foreign key
-  user        User     @relation(fields: [userId], references: [id])
-  createdAt   DateTime @default(now())
+  image        String
+  difficulty   String?
+  cookingTime  Int?
+  prepTime     Int?
+  toolsNeeded  Json
+  userId       Int
+  user         User     @relation(fields: [userId], references: [id])
+  likes        Like[]
+  saves        Save[]
+  Reviews      Review[]
+  createdAt    DateTime @default(now())
 }
 
 model Group {
@@ -73,9 +78,35 @@ model Member {
 }
 
 model Review {
-  id   Int @id @default(autoincrement())
-  userId  Int
-  user    User    @relation(fields: [userId], references: [id])
-  rating  Int
-  review  String
+  id       Int    @id @default(autoincrement())
+  userId   Int
+  recipeId Int
+  rating   Int
+  comment  String
+  user     User   @relation(fields: [userId], references: [id])
+  recipe   Recipe @relation(fields: [recipeId], references: [id])
+
+  @@unique([userId, recipeId])
+}
+
+model Like {
+  id       Int @id @default(autoincrement())
+  userId   Int
+  recipeId Int
+
+  user   User   @relation(fields: [userId], references: [id])
+  recipe Recipe @relation(fields: [recipeId], references: [id])
+
+  @@unique([userId, recipeId])
+}
+
+model Save {
+  id       Int @id @default(autoincrement())
+  userId   Int
+  recipeId Int
+
+  user   User   @relation(fields: [userId], references: [id])
+  recipe Recipe @relation(fields: [recipeId], references: [id])
+
+  @@unique([userId, recipeId])
 }

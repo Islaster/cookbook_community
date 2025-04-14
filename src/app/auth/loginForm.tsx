@@ -10,17 +10,17 @@ export default function LoginForm() {
     password: "",
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const { fetchUser } = useUserContext();
 
   // Handle input changes
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   // Handle form submission
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -35,12 +35,14 @@ export default function LoginForm() {
         throw new Error("Failed to sign up");
       }
 
-      const data = await response.json();
+      await response.json();
       fetchUser();
 
       router.push("/"); // Redirect after successful sign-up
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      }
     } finally {
       setLoading(false);
     }

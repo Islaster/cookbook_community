@@ -1,15 +1,24 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import RecipeGridItem from "@/components/landing/recipeGridItem";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import data from "@/data/recipes.json";
+import { AllRecipes } from "@/lib/AllRecipes";
+import type { Recipe } from "@prisma/client";
 
 export default function Home() {
-  const [gridData, setGridData] = useState(data);
+  const [gridData, setGridData] = useState<Recipe[]>([]);
   const [title, setTitle] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      const recipes = await AllRecipes();
+      setGridData(recipes);
+    };
+    fetchRecipes();
+  }, []);
 
   function onEnterKeyPress(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {

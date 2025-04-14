@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createUser } from "@/controllers/auth";
-import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 
 type User = { username: string; password: string; email: string };
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   const body: User = await req.json(); //  request payload
 
   try {
@@ -26,8 +25,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
     });
 
     return res;
-  } catch (err: any) {
-    console.log(err);
-    return NextResponse.json({ error: err.message }, { status: 400 });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.log(err);
+      return NextResponse.json({ error: err.message }, { status: 400 });
+    }
   }
 }

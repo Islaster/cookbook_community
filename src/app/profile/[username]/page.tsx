@@ -1,21 +1,22 @@
 import { prisma } from "@/lib/prisma";
-import { FC } from "react";
 import Link from "next/link";
 import ProfileImageDisplay from "./ProfileImageDisplay";
 import Buttons from "./settingsAndFollowButton";
+import Image from "next/image";
 
-type ProfilelProps = {
-  params: {
+type UserProps = {
+  params: Promise<{
     username: string;
-  };
+  }>;
 };
 
-const Profile: FC<ProfilelProps> = async ({ params }) => {
+const Profile = async ({ params }: UserProps) => {
   const { username } = await params;
   const user = await prisma.user.findUnique({
     where: { username },
     include: { recipes: true, followers: true, following: true },
   });
+  if (!user) throw new Error("user doesn't exist");
   return (
     <div className="max-w-3xl mx-auto p-4 space-y-6">
       {/* Top Profile Row */}
@@ -28,38 +29,46 @@ const Profile: FC<ProfilelProps> = async ({ params }) => {
           />
 
           <div>
-            <h2 className="text-2xl font-semibold">{user?.username}</h2>
-            <p className="text-gray-600">{user?.bio}</p>
+            <h2 className="text-2xl font-semibold">{user.username}</h2>
+            <p className="text-gray-600">{user.bio}</p>
           </div>
         </div>
-        <Buttons id={user?.id ?? 0} />
+        <Buttons currentUserId={user.id} />
       </div>
 
       {/* Stats Row */}
       <div className="flex justify-around text-center border-y py-4">
         <div>
-          <div className="font-bold">{user?.recipes.length}</div>
+          <div className="font-bold">{user.recipes.length}</div>
           <div className="text-sm text-gray-600">Posts</div>
         </div>
         <div>
-          <div className="font-bold">{user?.followers.length}</div>
-          <div className="text-sm text-gray-600">Followers</div>
+          <Link href={`/profile/${username}/followers`}>
+            <div className="font-bold">{user.followers.length}</div>
+            <div className="text-sm text-gray-600">Followers</div>
+          </Link>
         </div>
         <div>
-          <div className="font-bold">{user?.following.length}</div>
-          <div className="text-sm text-gray-600">Following</div>
+          <Link href={`/profile/${username}/following`}>
+            <div className="font-bold">{user.following.length}</div>
+            <div className="text-sm text-gray-600">Following</div>
+          </Link>
         </div>
       </div>
 
       {/* Recipe Grid */}
       <div className="grid grid-cols-3 gap-1">
-        {user?.recipes.map((recipe, idx) => (
-          <img
-            key={idx}
-            src={recipe.image}
-            alt="recipe"
-            className="aspect-square object-cover w-full"
-          />
+        {user.recipes.map((recipe, idx) => (
+          <Link href={`/recipe/${recipe.id}`} key={idx}>
+            <div className="relative aspect-square w-full overflow-hidden">
+              <Image
+                src={recipe.image}
+                alt="recipe"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </Link>
         ))}
       </div>
     </div>

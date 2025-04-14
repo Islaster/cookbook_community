@@ -1,23 +1,15 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-
-type User = {
-  id: number;
-  username: string;
-  email: string;
-  name?: string;
-  socials?: any;
-  bio?: string;
-};
+import { SafeUser } from "@/types/user";
 
 const UserContext = createContext<{
-  user: User | null;
+  user: SafeUser | null;
   isEditing: boolean;
   tempImage: string | null;
   setTempImage: (tempImage: string | null) => void;
   setIsEditing: (isEditing: boolean) => void;
-  setUser: (user: User | null) => void;
+  setUser: (user: SafeUser | null) => void;
   fetchUser: () => Promise<void>;
 }>({
   user: null,
@@ -34,10 +26,10 @@ export function UserProvider({
   initialUser,
 }: {
   children: React.ReactNode;
-  initialUser: User | null;
+  initialUser: null | SafeUser;
 }) {
   const [tempImage, setTempImage] = useState<string | null>(null);
-  const [user, setUser] = useState<User | null>(initialUser);
+  const [user, setUser] = useState<null | SafeUser>(initialUser);
   const [isEditing, setIsEditing] = useState(false);
 
   const fetchUser = async () => {

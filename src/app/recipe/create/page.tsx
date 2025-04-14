@@ -45,19 +45,26 @@ export default function CreateRecipe() {
         throw new Error("Failed to create recipe");
       }
 
-      const data = await response.json();
+      await response.json();
       router.push("/profile");
-    } catch (err: any) {
-      console.error(err);
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(err);
+        setError(err.message);
+      }
     } finally {
       setCreate(false);
     }
   }
 
-  const handleChange = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange =
+    (field: string) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData((prev) => ({
+        ...prev,
+        [field]: e.target.value,
+      }));
+    };
   return (
     <div className="w-full max-w-2xl mx-auto mt-5 px-4">
       <h2 className="text-2xl font-semibold text-center mb-4">
@@ -75,7 +82,7 @@ export default function CreateRecipe() {
             type="text"
             name="title"
             value={formData.title}
-            onChange={handleChange}
+            onChange={handleChange("title")}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -87,7 +94,7 @@ export default function CreateRecipe() {
           <textarea
             name="description"
             value={formData.description}
-            onChange={handleChange}
+            onChange={handleChange("description")}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
