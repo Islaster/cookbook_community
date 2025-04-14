@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "NODE_ENV=development tsx prisma/seed.ts"
+    "seed": "NODE_ENV=development tsx prisma/seed.ts",
+    "prisma:generate": "prisma generate"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.779.0",
