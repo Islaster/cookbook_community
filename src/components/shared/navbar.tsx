@@ -48,7 +48,7 @@ export default function Navbar() {
             onClick={() => setSearch(true)}
           >
             <Image
-              src="/search-icon.png"
+              src="/images/search-icon.png"
               alt="search icon"
               fill
               className="object-contain"
@@ -99,7 +99,7 @@ export default function Navbar() {
         <Link href="/">
           <div className="relative h-12 w-[120px]">
             <Image
-              src="/community_cookbook_logo.png"
+              src="/images/community_cookbook_logo.png"
               alt="logo"
               fill
               className="object-contain"

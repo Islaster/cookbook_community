@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 
 export default async function Providers({ children }: { children: ReactNode }) {
   const cookie = await getUserFromCookie();
-  if (cookie === null) throw new Error("cookie not found");
+  if (!cookie) throw new Error("cookie not found");
   const user = await prisma.user.findUnique({
     where: { id: cookie.id },
   });
