@@ -4,8 +4,6 @@ import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 import { getUserById } from "@/lib/db/users";
 
-export const dynamic = "force-dynamic";
-
 export async function getUserFromCookie() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
