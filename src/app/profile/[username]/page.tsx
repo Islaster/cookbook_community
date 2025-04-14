@@ -40,7 +40,7 @@ const Profile = async ({ params }: UserProps) => {
       <div className="flex justify-around text-center border-y py-4">
         <div>
           <div className="font-bold">{user.recipes.length}</div>
-          <div className="text-sm text-gray-600">Posts</div>
+          <div className="text-sm text-gray-600">Recipes</div>
         </div>
         <div>
           <Link href={`/profile/${username}/followers`}>
@@ -57,20 +57,33 @@ const Profile = async ({ params }: UserProps) => {
       </div>
 
       {/* Recipe Grid */}
-      <div className="grid grid-cols-3 gap-1">
-        {user.recipes.map((recipe, idx) => (
-          <Link href={`/recipe/${recipe.id}`} key={idx}>
-            <div className="relative aspect-square w-full overflow-hidden">
-              <Image
-                src={recipe.image}
-                alt="recipe"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </Link>
-        ))}
-      </div>
+      {user.recipes.length > 0 && (
+        <div className="grid grid-cols-3 gap-1">
+          {user.recipes.map((recipe, idx) => (
+            <Link href={`/recipe/${recipe.id}`} key={idx}>
+              <div className="relative aspect-square w-full overflow-hidden">
+                <Image
+                  src={recipe.image}
+                  alt="recipe"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
+      {user.recipes.length === 0 && (
+        <div className="flex items-center justify-center h-64">
+          <Image
+            src="/images/recipe.png" // placeholder or coming soon image
+            alt="No recipes yet"
+            width={200}
+            height={200}
+            className="object-contain opacity-60"
+          />
+        </div>
+      )}
     </div>
   );
 };

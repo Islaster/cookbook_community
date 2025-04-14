@@ -38,7 +38,9 @@ const FollweringPage = async ({ params }: FollowingProps) => {
       </h2>
 
       {user.following.length === 0 ? (
-        <p className="text-gray-500 text-center">No followers yet.</p>
+        <p className="text-gray-500 text-center">
+          You&apos;re not following anyone.
+        </p>
       ) : (
         <ul className="space-y-4">
           {followingArr.map((follower: User | null, idx: number) => (
