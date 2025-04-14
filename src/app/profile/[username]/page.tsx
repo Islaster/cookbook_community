@@ -25,7 +25,7 @@ const Profile = async ({ params }: UserProps) => {
           {/* Profile Pic with Upload Hover */}
           <ProfileImageDisplay
             username={username}
-            image={user?.image ?? "./profile.png"}
+            image={user?.image ?? "/images/profile.png"}
           />
 
           <div>
